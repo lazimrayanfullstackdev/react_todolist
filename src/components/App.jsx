@@ -1,13 +1,20 @@
-import React from "react";
+
+import React, {useState} from "react";
 
 function App() {
 
-  var itemType = [];
+  const [items, setUtem] = useState([]);
+
   function handleChange(event){
     const {name, value} = event.target;
     console.log(value);
+
   }
 
+  function clicked(){
+    //hold the value of name
+    console.log("I was clicked!");
+  }
   return (
     <div className="container">
       <div className="heading">
@@ -15,7 +22,7 @@ function App() {
       </div>
       <div className="form">
         <input type="text" onChange={handleChange} name="ItemName"/>
-        <button>
+        <button onClick={clicked}>
           <span>Add</span>
         </button>
       </div>
