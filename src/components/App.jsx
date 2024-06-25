@@ -32,7 +32,9 @@ function App() {
       </div>
       <div>
         <ul>
-          <li>A Item</li>
+          {items.map((item, index) =>(
+            <li key={index}>{item}</li>
+          ))}
         </ul>
       </div>
     </div>
