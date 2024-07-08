@@ -3,32 +3,28 @@ import React, {useState} from "react";
 
 function App() {
 
-  const [items, setItems] = useState([]);
-  const [item, setItem] = useState("");
+  const [items, setItems] = useState([]); //declaring items array
+  const [item, setItem] = useState(""); //declaring single item
 
   function handleChange(event){
-    const {name, value} = event.target;
-    console.log(value);
-    setItem(value);
+    const {value} = event.target; //holding the value of input
+    setItem(value); // passing the value of item and set it as item
   }
 
   function clicked(){
-    //hold the value of name
-    console.log("I was clicked!");
-    setItems((prevValue) => [...prevValue,item]);
-    setItem("");
+    setItems((prevValue) => [...prevValue,item]); //pushing item in the items array
+    setItem(""); //clearing the input field after adding to array
   }
-  console.log(items);
+
   return (
-    <div className="container">
+    <div className="container"> 
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input type="text" onChange={handleChange} name="ItemName" value={item}/>
-        <button onClick={clicked}>
-          <span>Add</span>
-        </button>
+        <input type="text" onChange={handleChange} name="ItemName" value={item}/> {/* Passing the value of the text input */}
+        <button onClick={clicked}> {/*passing the value to clicked function to handle change. */}
+          <span>Add</span></button>
       </div>
       <div>
         <ul>
@@ -40,5 +36,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
